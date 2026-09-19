@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayurveda & Panchkarma Care</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="top-bar">
+            <span>📞 Direct Consultation: <a href="tel:+917720092701">+91 77200 92701</a></span>
+        </div>
+        <nav class="nav-container">
+            <div class="logo">
+                <img src="assets/hero-1.png" alt="Ayurveda Logo" class="site-logo">
+            </div>
+            <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#treatments">Treatments</a></li>
+                <li><a href="#doctors">Doctors</a></li>
+                <li><a href="#appointment">Book Appointment</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section hero-bg">
+        <div class="hero-content">
+            <h1>Authentic Ayurvedic Healing & Wellness</h1>
+            <p>Restore your body's natural balance through traditional Panchkarma therapies and personalized care.</p>
+            <a href="#appointment" class="cta-btn">Book Consultation</a>
+        </div>
+
+        <!-- Fixed Hero Slider Box -->
+        <div class="hero-img-box hero-slider">
+            <img src="assets/hero-1.png" alt="Ayurvedic Oils and Herbs" class="slide active">
+            <img src="assets/hero-2.jpg" alt="Ayurvedic Shirodhara Therapy" class="slide">
+        </div>
+    </section>
+
+    <!-- Panchkarma Treatments Section -->
+    <section id="treatments" class="treatments-section">
+        <h2>Panchkarma Therapies</h2>
+        <div class="tab-controls">
+            <button class="tab-btn active" data-tab="tab-1">Vamana</button>
+            <button class="tab-btn" data-tab="tab-2">Virechana</button>
+            <button class="tab-btn" data-tab="tab-3">Basti</button>
+            <button class="tab-btn" data-tab="tab-4">Nasya</button>
+        </div>
+
+        <div class="tab-container">
+            <div id="tab-1" class="tab-content active">
+                <h3>Vamana (Therapeutic Emesis)</h3>
+                <p>Targeted bio-cleansing therapy designed to release excess Kapha toxins from the upper respiratory and digestive tracts.</p>
+            </div>
+            <div id="tab-2" class="tab-content">
+                <h3>Virechana (Purgation Therapy)</h3>
+                <p>Medicated purgation therapy that cleanses Pitta toxins from the liver, gallbladder, and gastrointestinal tract.</p>
+            </div>
+            <div id="tab-3" class="tab-content">
+                <h3>Basti (Enema Therapy)</h3>
+                <p>Herbal decoction and oil enemas considered the primary treatment for balancing Vata dosha and purifying the colon.</p>
+            </div>
+            <div id="tab-4" class="tab-content">
+                <h3>Nasya (Nasal Administration)</h3>
+                <p>Administration of herbal oils through the nasal passages to clear head congestion, improve mental clarity, and treat sinus issues.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctor Section -->
+    <section id="doctors" class="doctors-section">
+        <h2>Our Ayurvedic Specialists</h2>
+        <div class="modern-doctor">
+            <div class="doctor-card">
+                <h3>Lead Vaidya</h3>
+                <p>Specializing in Nadi Pariksha (Pulse Diagnosis) and Chronic Disease Management.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Form -->
+    <section id="appointment" class="appointment-section">
+        <h2>Book Your Consultation</h2>
+        <div class="appointment-form">
+            <form>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Your Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="date" class="form-control" id="appointment-date" required>
+                </div>
+                <button type="submit" class="submit-btn">Confirm Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Toast Notification -->
+    <div class="toast" role="alert" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
