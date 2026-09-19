@@ -3,108 +3,1472 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ayurveda & Panchkarma Care</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Niramay Panchkarma Kendra | Authentic Ayurveda in Kolhapur</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #174c37;
+            --primary-dark: #0f3425;
+            --primary-light: #2c7052;
+            --gold: #b38a4a;
+            --gold-light: #d4af37;
+            --cream: #f9f7f2;
+            --cream-card: #ffffff;
+            --text-dark: #1f2e27;
+            --text-muted: #5c6b63;
+            --border: #e2e7df;
+            --shadow: 0 10px 30px rgba(23, 76, 55, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: #fff;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, .serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Top Announcement Bar */
+        .top-bar {
+            background: var(--primary-dark);
+            color: #dce9df;
+            padding: 10px 5%;
+            font-size: 13px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            letter-spacing: 0.5px;
+        }
+
+        .top-bar-info span {
+            margin-right: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-icon {
+            width: 46px;
+            height: 46px;
+            background: var(--primary);
+            color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .brand-text b {
+            display: block;
+            font-size: 22px;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+        }
+
+        .brand-text small {
+            font-size: 10px;
+            letter-spacing: 2px;
+            color: var(--gold);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .nav-links a {
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: #fff !important;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            border: 1px solid var(--primary);
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-light);
+            box-shadow: 0 4px 12px rgba(23, 76, 55, 0.2);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary) !important;
+            border: 1px solid var(--primary);
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: var(--cream);
+            border-color: var(--primary-light);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
+            padding: 80px 8%;
+            background: linear-gradient(135deg, var(--cream) 0%, #f2efe6 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(179, 138, 74, 0.12);
+            color: var(--gold);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 4.5vw, 64px);
+            line-height: 1.1;
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero h1 i {
+            color: var(--gold);
+            font-style: normal;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 540px;
+            line-height: 1.8;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .hero-card-container {
+            position: relative;
+        }
+
+        .hero-img-box {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            border: 1px solid rgba(179, 138, 74, 0.2);
+            background: #e5e0d3;
+            min-height: 440px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .hero-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+        }
+
+        .hero-floating-badge {
+            position: absolute;
+            bottom: 24px;
+            left: 24px;
+            right: 24px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .hero-floating-badge h4 {
+            font-size: 18px;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .hero-floating-badge p {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            padding: 35px 8%;
+            background: var(--primary);
+            color: #fff;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 36px;
+            color: var(--gold-light);
+            margin-bottom: 4px;
+        }
+
+        .stat-item p {
+            font-size: 13px;
+            color: #d2e3d8;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Section Layout */
+        .section {
+            padding: 90px 8%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 50px;
+        }
+
+        .section-subtitle {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: clamp(32px, 3vw, 44px);
+            color: var(--primary);
+            line-height: 1.2;
+            font-weight: 600;
+        }
+
+        .section-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-top: 12px;
+        }
+
+        /* Pillars / Features */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .pillar-card {
+            background: var(--cream-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 35px 28px;
+            transition: var(--transition);
+            position: relative;
+            top: 0;
+        }
+
+        .pillar-card:hover {
+            top: -6px;
+            box-shadow: var(--shadow);
+            border-color: rgba(179, 138, 74, 0.4);
+        }
+
+        .pillar-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--cream);
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+
+        .pillar-card h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+
+        .pillar-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Panchkarma Interactive Section */
+        .bg-cream {
+            background-color: var(--cream);
+        }
+
+        .tab-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 28px;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            border-color: var(--primary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .panchkarma-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .therapy-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .therapy-card:hover {
+            box-shadow: var(--shadow);
+            border-color: var(--gold);
+        }
+
+        .therapy-card small {
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 11px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .therapy-card h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin: 10px 0;
+        }
+
+        .therapy-card p {
+            font-size: 13.5px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .therapy-card .benefits-list {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
+        }
+
+        .benefits-list li {
+            font-size: 12.5px;
+            color: var(--primary-light);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .benefits-list li::before {
+            content: "✓";
+            color: var(--gold);
+            font-weight: bold;
+        }
+
+        /* Specializations Grid */
+        .spec-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .spec-card {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .spec-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .spec-img {
+            background: #e2ddd0;
+            min-height: 220px;
+            position: relative;
+        }
+
+        .spec-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            inset: 0;
+        }
+
+        .spec-info {
+            padding: 25px;
+        }
+
+        .spec-info h3 {
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .spec-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .spec-info a {
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Doctors Section */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .doctor-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .doctor-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .doctor-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: var(--cream);
+            margin: 0 auto 20px;
+            border: 3px solid var(--gold);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: var(--primary);
+        }
+
+        .doctor-card h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 4px;
+        }
+
+        .doctor-card .degree {
+            font-size: 12px;
+            color: var(--gold);
+            font-weight: 700;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .doctor-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Contact & Appointment Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .contact-details h3 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .contact-details p {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 25px;
+        }
+
+        .detail-icon {
+            width: 42px;
+            height: 42px;
+            background: var(--cream);
+            border-radius: 50%;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .detail-text h4 {
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .detail-text p {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        .appointment-form {
+            background: var(--cream);
+            padding: 35px;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+        }
+
+        .appointment-form h3 {
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #dce3d8;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            background: #fff;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(179, 138, 74, 0.15);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: #dce9df;
+            padding: 70px 8% 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-brand b {
+            font-size: 26px;
+            color: #fff;
+            font-family: 'Cormorant Garamond', serif;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-brand small {
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            font-size: 10px;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            color: #a3c2af;
+            line-height: 1.7;
+        }
+
+        .footer-col h4 {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul a {
+            font-size: 13px;
+            color: #b5d1bd;
+            transition: var(--transition);
+        }
+
+        .footer-col ul a:hover {
+            color: var(--gold-light);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #8dae97;
+        }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: #fff;
+            padding: 15px 25px;
+            border-radius: 4px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            display: none;
+            z-index: 2000;
+            border-left: 4px solid var(--gold);
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 992px) {
+            .hero, .contact-container, .spec-card {
+                grid-template-columns: 1fr;
+            }
+
+            .pillars-grid, .panchkarma-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #fff;
+                flex-direction: column;
+                padding: 20px;
+                border-bottom: 1px solid var(--border);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .pillars-grid, .panchkarma-grid, .doctors-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-bar {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    
+/* Senior UI/UX refinement layer */
+.site-logo{width:78px;height:78px;object-fit:contain;border-radius:50%;background:#fff;filter:drop-shadow(0 5px 10px rgba(23,76,55,.16));flex:none}
+.brand{gap:10px}
+.hero-slider{min-height:500px!important;position:relative;overflow:hidden}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity .9s ease}
+.hero-slide.active{opacity:1}
+.hero-slider:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,45,31,.03),rgba(10,45,31,.18))}
+.hero-image-overlay{position:absolute;inset:0;z-index:2;pointer-events:none}
+.hero-floating-badge{z-index:3}
+.hero-dots{position:absolute;z-index:5;right:22px;top:22px;display:flex;gap:7px}
+.hero-dot{width:30px;height:5px;border:0;border-radius:10px;background:rgba(255,255,255,.55);cursor:pointer}
+.hero-dot.active{background:#d4af37}
+.modern-doctor{padding:0!important;overflow:hidden;display:grid;grid-template-columns:180px 1fr;text-align:left!important}
+.doctor-photo{height:100%;min-height:285px;overflow:hidden}
+.doctor-photo img{width:100%;height:100%;object-fit:cover}
+.doctor-info{padding:28px;display:flex;flex-direction:column;justify-content:center}
+.doctor-info h3{margin:5px 0 5px!important}
+.experience{font-size:12px;color:var(--primary-light);margin-bottom:12px}
+.enhanced-spec{grid-template-columns:72px 1fr!important;align-items:center;min-height:145px}
+.spec-mini-icon{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#eff4d7,#f8f5ec);display:grid;place-items:center;font-size:25px;margin-left:18px}
+.enhanced-spec .spec-info{padding:18px 20px 18px 8px}
+.enhanced-spec .spec-info h3{font-size:19px}
+.enhanced-spec .spec-info p{font-size:12px;margin-bottom:8px}
+@media(max-width:768px){
+.site-logo{width:68px;height:68px}
+.modern-doctor{grid-template-columns:1fr}
+.doctor-photo{height:300px;min-height:300px}
+.enhanced-spec{grid-template-columns:58px 1fr!important}
+.spec-mini-icon{margin-left:12px;width:46px;height:46px}
+}
+</style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header class="navbar">
-        <div class="top-bar">
-            <span>📞 Direct Consultation: <a href="tel:+917720092701">+91 77200 92701</a></span>
+    <!-- Top Announcement Bar -->
+    <div class="top-bar">
+        <div class="top-bar-info">
+            <span>📍 Raviwar Peth, Kolhapur, Maharashtra[cite: 5]</span>
+            <span>📞 +91 77200 92701[cite: 5]</span>
         </div>
-        <nav class="nav-container">
-            <div class="logo">
-                <img src="assets/hero-1.png" alt="Ayurveda Logo" class="site-logo">
+        <div>
+            <span>⏰ Mon - Sat: 9:00 AM - 8:00 PM[cite: 5]</span>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <nav>
+        <a href="#home" class="brand">
+            <div class="brand-icon">🌿</div>
+            <div class="brand-text">
+                <b>NIRAMAY</b>
+                <small>Panchkarma Kendra[cite: 5]</small>
             </div>
-            <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#treatments">Treatments</a></li>
-                <li><a href="#doctors">Doctors</a></li>
-                <li><a href="#appointment">Book Appointment</a></li>
-            </ul>
-        </nav>
-    </header>
+        </a>
+        <div class="nav-links" id="navLinks">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#panchkarma">Panchkarma</a>
+            <a href="#specialties">Specializations</a>
+            <a href="#doctors">Our Doctors</a>
+            <a href="#contact" class="btn-primary">Book Consultation</a>
+        </div>
+        <div class="menu-toggle" id="menuToggle">☰</div>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero-section hero-bg">
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Authentic Ayurvedic Healing & Wellness</h1>
-            <p>Restore your body's natural balance through traditional Panchkarma therapies and personalized care.</p>
-            <a href="#appointment" class="cta-btn">Book Consultation</a>
-        </div>
-
-        <!-- Fixed Hero Slider Box -->
-        <div class="hero-img-box hero-slider">
-            <img src="assets/hero-1.png" alt="Ayurvedic Oils and Herbs" class="slide active">
-            <img src="assets/hero-2.jpg" alt="Ayurvedic Shirodhara Therapy" class="slide">
-        </div>
-    </section>
-
-    <!-- Panchkarma Treatments Section -->
-    <section id="treatments" class="treatments-section">
-        <h2>Panchkarma Therapies</h2>
-        <div class="tab-controls">
-            <button class="tab-btn active" data-tab="tab-1">Vamana</button>
-            <button class="tab-btn" data-tab="tab-2">Virechana</button>
-            <button class="tab-btn" data-tab="tab-3">Basti</button>
-            <button class="tab-btn" data-tab="tab-4">Nasya</button>
-        </div>
-
-        <div class="tab-container">
-            <div id="tab-1" class="tab-content active">
-                <h3>Vamana (Therapeutic Emesis)</h3>
-                <p>Targeted bio-cleansing therapy designed to release excess Kapha toxins from the upper respiratory and digestive tracts.</p>
-            </div>
-            <div id="tab-2" class="tab-content">
-                <h3>Virechana (Purgation Therapy)</h3>
-                <p>Medicated purgation therapy that cleanses Pitta toxins from the liver, gallbladder, and gastrointestinal tract.</p>
-            </div>
-            <div id="tab-3" class="tab-content">
-                <h3>Basti (Enema Therapy)</h3>
-                <p>Herbal decoction and oil enemas considered the primary treatment for balancing Vata dosha and purifying the colon.</p>
-            </div>
-            <div id="tab-4" class="tab-content">
-                <h3>Nasya (Nasal Administration)</h3>
-                <p>Administration of herbal oils through the nasal passages to clear head congestion, improve mental clarity, and treat sinus issues.</p>
+            <span class="hero-badge">🌿 Authentic Ayurveda in Kolhapur[cite: 5]</span>
+            <h1>Holistic Healing & <i>Pure Rejuvenation</i></h1>
+            <p>Experience classical Ayurvedic Panchkarma therapies and personalized treatments crafted by experienced physicians to restore balance, cure chronic ailments, and revitalize your health.</p>
+            <div class="hero-actions">
+                <a href="#contact" class="btn-primary">Book Appointment</a>
+                <a href="#panchkarma" class="btn-outline">Explore Therapies</a>
             </div>
         </div>
-    </section>
 
-    <!-- Doctor Section -->
-    <section id="doctors" class="doctors-section">
-        <h2>Our Ayurvedic Specialists</h2>
-        <div class="modern-doctor">
-            <div class="doctor-card">
-                <h3>Lead Vaidya</h3>
-                <p>Specializing in Nadi Pariksha (Pulse Diagnosis) and Chronic Disease Management.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Appointment Form -->
-    <section id="appointment" class="appointment-section">
-        <h2>Book Your Consultation</h2>
-        <div class="appointment-form">
-            <form>
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Your Full Name" required>
+        <div class="hero-card-container">
+            <div class="hero-img-box hero-slider">
+                <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1600334089648-b0d9d3028eb2?auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1512290900673-04e4c935b542?auto=format&fit=crop&w=800&q=80');"></div>
+                
+                <div class="hero-dots">
+                    <button class="hero-dot active" onclick="setSlide(0)"></button>
+                    <button class="hero-dot" onclick="setSlide(1)"></button>
+                    <button class="hero-dot" onclick="setSlide(2)"></button>
                 </div>
-                <div class="form-group">
-                    <input type="tel" class="form-control" placeholder="Phone Number" required>
+
+                <div class="hero-floating-badge">
+                    <h4>Classical Detox Protocols</h4>
+                    <p>Tailored treatments based on your unique body constitution (Prakriti).</p>
                 </div>
-                <div class="form-group">
-                    <input type="date" class="form-control" id="appointment-date" required>
-                </div>
-                <button type="submit" class="submit-btn">Confirm Booking</button>
-            </form>
+            </div>
         </div>
     </section>
+
+    <!-- Stats Bar -->
+    <div class="stats-bar">
+        <div class="stat-item">
+            <h3>15+</h3>
+            <p>Years of Clinical Experience</p>
+        </div>
+        <div class="stat-item">
+            <h3>10,000+</h3>
+            <p>Happy Recovered Patients</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>Authentic Classical Ayurveda</p>
+        </div>
+    </div>
+
+    <!-- Pillars / About Section -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <span class="section-subtitle">Why Choose Niramay</span>
+            <h2 class="section-title">The Three Pillars of Root-Cause Healing</h2>
+            <p class="section-desc">We combine age-old Samhita principles with meticulous clinical diagnosis to ensure long-lasting relief and complete wellness.</p>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">🪔</div>
+                <h3>Authentic Panchkarma</h3>
+                <p>Pure, step-by-step detox therapies including Poorvakarma, Pradhanakarma, and Paschatkarma conducted with therapeutic herbal oils.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">👨‍⚕️</div>
+                <h3>Expert Physicians</h3>
+                <p>Consult with highly skilled B.A.M.S. & M.D. Ayurvedic doctors dedicated to accurate diagnosis and comprehensive patient care.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🌱</div>
+                <h3>Custom Formulations</h3>
+                <p>100% natural, chemical-free herbal preparations, customized diet plans, and lifestyle modifications specific to your Dosha imbalances.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Panchkarma Section -->
+    <section class="section bg-cream" id="panchkarma">
+        <div class="section-header">
+            <span class="section-subtitle">Panchkarma Therapies</span>
+            <h2 class="section-title">Five Fold Purification Protocol</h2>
+            <p class="section-desc">Panchkarma eliminates deep-rooted toxins (Ama) from tissues and restores the natural balance of Vata, Pitta, and Kapha.</p>
+        </div>
+
+        <div class="tab-nav">
+            <button class="tab-btn active" onclick="openTab(event, 'vamana')">Vamana</button>
+            <button class="tab-btn" onclick="openTab(event, 'virechana')">Virechana</button>
+            <button class="tab-btn" onclick="openTab(event, 'basti')">Basti</button>
+            <button class="tab-btn" onclick="openTab(event, 'nasya')">Nasya</button>
+            <button class="tab-btn" onclick="openTab(event, 'raktamokshana')">Raktamokshana</button>
+        </div>
+
+        <!-- Vamana Content -->
+        <div id="vamana" class="tab-content active">
+            <div class="panchkarma-grid">
+                <div class="therapy-card">
+                    <small>Kapha Elimination</small>
+                    <h3>Therapeutic Vomiting (Vamana)</h3>
+                    <p>Controlled emesis therapy designed to eliminate excessive Kapha dosha accumulated in the upper respiratory and gastrointestinal tract.</p>
+                    <ul class="benefits-list">
+                        <li>Relieves Asthma, Bronchitis & Sinusitis</li>
+                        <li>Cures Chronic Psoriasis & Skin Allergies</li>
+                        <li>Enhances Digestion & Metabolism</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Preparation</small>
+                    <h3>Snehana & Swedana</h3>
+                    <p>Internal oleation with medicated ghee followed by therapeutic steam bath to loosen toxins from bodily tissues prior to Vamana.</p>
+                    <ul class="benefits-list">
+                        <li>Deep tissue toxin mobilization</li>
+                        <li>Relaxes nervous system</li>
+                        <li>Prepares organs for safe detox</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Post Therapy</small>
+                    <h3>Samsarjana Krama</h3>
+                    <p>A specialized post-detox dietary regimen that gradually rekindles digestive fire (Agni) and strengthens vitality.</p>
+                    <ul class="benefits-list">
+                        <li>Gradual transition to solid foods</li>
+                        <li>Prevents post-detox fatigue</li>
+                        <li>Maximizes treatment efficacy</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Virechana Content -->
+        <div id="virechana" class="tab-content">
+            <div class="panchkarma-grid">
+                <div class="therapy-card">
+                    <small>Pitta Detoxification</small>
+                    <h3>Therapeutic Purgation (Virechana)</h3>
+                    <p>Medicated cleansing therapy targeting excess Pitta accumulated in the liver, gallbladder, and small intestine.</p>
+                    <ul class="benefits-list">
+                        <li>Treats Hyperacidity, IBS & Liver disorders</li>
+                        <li>Clears Acne, Eczema & Urticaria</li>
+                        <li>Balances Body Temperature & Hormones</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Application</small>
+                    <h3>Liver & Blood Cleansing</h3>
+                    <p>Helps flush out metabolic waste products and purifies the bloodstream for radiant health and vitality.</p>
+                    <ul class="benefits-list">
+                        <li>Improves lipid & glucose metabolism</li>
+                        <li>Clears chronic skin inflammation</li>
+                        <li>Reduces body heat and restlessness</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Ideal Candidates</small>
+                    <h3>Chronic Pitta Conditions</h3>
+                    <p>Recommended for individuals suffering from chronic digestive problems, skin issues, and metabolic syndrome.</p>
+                    <ul class="benefits-list">
+                        <li>Psoriasis & Dermatitis relief</li>
+                        <li>Chronic constipation management</li>
+                        <li>Hormonal imbalance recovery</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Basti Content -->
+        <div id="basti" class="tab-content">
+            <div class="panchkarma-grid">
+                <div class="therapy-card">
+                    <small>Vata Balancing</small>
+                    <h3>Medicated Enema Therapy (Basti)</h3>
+                    <p>The mother of all Panchkarma treatments. Involves administering herbal oils or decoctions through the colon to normalize Vata dosha.</p>
+                    <ul class="benefits-list">
+                        <li>Relieves Arthritis, Sciatica & Joint Pain</li>
+                        <li>Heals Neurological & Paralytic Disorders</li>
+                        <li>Rejuvenates Colon Health & Immunity</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Types</small>
+                    <h3>Anuvasana & Niruha Basti</h3>
+                    <p>Alternating medicated oil enemas (Anuvasana) and herbal decoction enemas (Niruha) for deep tissue nourishment and toxin expulsion.</p>
+                    <ul class="benefits-list">
+                        <li>Strengthens spine and lumbar joints</li>
+                        <li>Nourishes reproductive tissues</li>
+                        <li>Restores gut microbiome balance</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Benefits</small>
+                    <h3>Complete Vata Rejuvenation</h3>
+                    <p>Ideal for chronic degenerative ailments, lower back stiffness, constipation, and age-related weakness.</p>
+                    <ul class="benefits-list">
+                        <li>Subdues 80+ Vata disorders</li>
+                        <li>Improves flexibility & mobility</li>
+                        <li>Boosts overall longevity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nasya Content -->
+        <div id="nasya" class="tab-content">
+            <div class="panchkarma-grid">
+                <div class="therapy-card">
+                    <small>ENT & Head Detox</small>
+                    <h3>Nasal Administration (Nasya)</h3>
+                    <p>Administration of medicated herbal oils or powders through nasal passages to treat diseases above the clavicle.</p>
+                    <ul class="benefits-list">
+                        <li>Relieves Chronic Migraine & Headaches</li>
+                        <li>Treats Sinusitis & Allergic Rhinitis</li>
+                        <li>Prevents Hair Fall & Premature Graying</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Mechanism</small>
+                    <h3>Brain & Nervous System Health</h3>
+                    <p>Directly stimulates olfactory nerve endings and the limbic system, promoting mental clarity and stress relief.</p>
+                    <ul class="benefits-list">
+                        <li>Improves sleep and reduces anxiety</li>
+                        <li>Enhances memory and focus</li>
+                        <li>Relieves cervical spondylosis stiffness</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Specialized Care</small>
+                    <h3>Facial & Sense Organ Glow</h3>
+                    <p>Clears blockages in the facial sinuses, nourishes sensory organs, and enhances natural facial skin glow.</p>
+                    <ul class="benefits-list">
+                        <li>Relieves facial paralysis symptoms</li>
+                        <li>Promotes healthy eye & ear function</li>
+                        <li>Reduces dark circles & fatigue</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Raktamokshana Content -->
+        <div id="raktamokshana" class="tab-content">
+            <div class="panchkarma-grid">
+                <div class="therapy-card">
+                    <small>Blood Purification</small>
+                    <h3>Bloodletting Therapy (Raktamokshana)</h3>
+                    <p>Controlled removal of toxic blood using leech therapy (Jalaukavacharana) or cupping to neutralize severe Pitta and Rakta imbalances.</p>
+                    <ul class="benefits-list">
+                        <li>Treats Severe Eczema & Varicose Veins</li>
+                        <li>Relieves Non-healing Ulcers & Abscesses</li>
+                        <li>Reduces Localized Pain & Inflammation</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Jalaukavacharana</small>
+                    <h3>Medicinal Leech Therapy</h3>
+                    <p>Bio-purification using specialized medicinal leeches that inject therapeutic bioactive enzymes into affected tissues.</p>
+                    <ul class="benefits-list">
+                        <li>Improves local blood microcirculation</li>
+                        <li>Reduces swelling and dark skin patches</li>
+                        <li>Accelerates tissue healing</li>
+                    </ul>
+                </div>
+                <div class="therapy-card">
+                    <small>Applications</small>
+                    <h3>Targeted Relief</h3>
+                    <p>Highly effective for localized skin lesions, gout pain, hypertension headaches, and vascular congestion.</p>
+                    <ul class="benefits-list">
+                        <li>Immediate pain relief in joint swelling</li>
+                        <li>Safe, sterile & pain-free procedure</li>
+                        <li>Purifies blood locally and systemically</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specializations Section -->
+    <section class="section" id="specialties">
+        <div class="section-header">
+            <span class="section-subtitle">Clinical Expertise</span>
+            <h2 class="section-title">Diseases & Conditions We Treat</h2>
+            <p class="section-desc">Our specialized clinical protocols provide effective, non-invasive management for acute and chronic conditions.</p>
+        </div>
+
+        <div class="spec-grid">
+            <div class="spec-card enhanced-spec">
+                <div class="spec-mini-icon">🦴</div>
+                <div class="spec-info">
+                    <h3>Spine & Joint Disorders</h3>
+                    <p>Sciatica, Cervical/Lumbar Spondylosis, Osteoarthritis, Rheumatoid Arthritis, and Disc Prolapse.</p>
+                    <a href="#contact">Book Therapy →</a>
+                </div>
+            </div>
+
+            <div class="spec-card enhanced-spec">
+                <div class="spec-mini-icon">✨</div>
+                <div class="spec-info">
+                    <h3>Skin & Hair Care</h3>
+                    <p>Psoriasis, Eczema, Chronic Acne, Urticaria, Alopecia Areata, and Hair Thinning treatment.</p>
+                    <a href="#contact">Book Therapy →</a>
+                </div>
+            </div>
+
+            <div class="spec-card enhanced-spec">
+                <div class="spec-mini-icon">🩺</div>
+                <div class="spec-info">
+                    <h3>Metabolic & Lifestyle Diseases</h3>
+                    <p>Diabetes management, Obesity, Fatty Liver, Hypertension, Thyroid, and Hyperacidity.</p>
+                    <a href="#contact">Book Therapy →</a>
+                </div>
+            </div>
+
+            <div class="spec-card enhanced-spec">
+                <div class="spec-mini-icon">🌸</div>
+                <div class="spec-info">
+                    <h3>Women's Health & Infertility</h3>
+                    <p>PCOS/PCOD, Menstrual irregularities, Fibroids, Infertility management, and Post-natal care.</p>
+                    <a href="#contact">Book Therapy →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="section bg-cream" id="doctors">
+        <div class="section-header">
+            <span class="section-subtitle">Our Experts</span>
+            <h2 class="section-title">Meet Our Experienced Doctors</h2>
+            <p class="section-desc">Dedicated Ayurvedic practitioners committed to compassionate care and authentic Panchkarma therapies.</p>
+        </div>
+
+        <div class="doctors-grid">
+            <!-- Dr. Harish Card -->
+            <div class="doctor-card modern-doctor">
+                <div class="doctor-photo">
+                    <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80" alt="Dr. Harish">
+                </div>
+                <div class="doctor-info">
+                    <h3>Dr. Harish</h3>
+                    <span class="degree">B.A.M.S., M.D. (Ayurveda)</span>
+                    <span class="experience">15+ Years Clinical Practice</span>
+                    <p>Senior Panchkarma Specialist with extensive expertise in chronic joint & spine disorders, neuromuscular conditions, and classical body detoxification protocols.</p>
+                </div>
+            </div>
+
+            <!-- Dr. Swati Card -->
+            <div class="doctor-card modern-doctor">
+                <div class="doctor-photo">
+                    <img src="https://images.unsplash.com/photo-1594824813571-2153349aed06?auto=format&fit=crop&w=600&q=80" alt="Dr. Swati">
+                </div>
+                <div class="doctor-info">
+                    <h3>Dr. Swati</h3>
+                    <span class="degree">B.A.M.S., M.D. (Ayurveda)</span>
+                    <span class="experience">12+ Years Clinical Practice</span>
+                    <p>Specialist in Streeroga (Women's Health), Infertility, Skin Rejuvenation, and Lifestyle Disease Management through natural Ayurvedic protocols.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Appointment Section -->
+    <section class="section" id="contact">
+        <div class="contact-container">
+            <div class="contact-details">
+                <h3>Get In Touch & Visit Our Center</h3>
+                <p>Prioritize your health today. Schedule a consultation or visit Niramay Panchkarma Kendra in Kolhapur for a detailed Prakriti analysis.</p>
+
+                <div class="detail-item">
+                    <div class="detail-icon">📍</div>
+                    <div class="detail-text">
+                        <h4>Location</h4>
+                        <p>Raviwar Peth, Kolhapur, Maharashtra[cite: 5]</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">📞</div>
+                    <div class="detail-text">
+                        <h4>Phone & WhatsApp</h4>
+                        <p>+91 77200 92701[cite: 5]</p>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <div class="detail-icon">⏰</div>
+                    <div class="detail-text">
+                        <h4>Working Hours</h4>
+                        <p>Monday - Saturday: 9:00 AM - 8:00 PM[cite: 5]<br>Sunday: By Prior Appointment Only</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="appointment-form">
+                <h3>Book An Appointment</h3>
+                <form id="bookingForm" onsubmit="handleFormSubmit(event)">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" class="form-control" placeholder="e.g. Rahul Patil" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Phone Number</label>
+                        <input type="tel" class="form-control" placeholder="e.g. +91 98765 43210" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Select Therapy / Consultation</label>
+                        <select class="form-control">
+                            <option>Doctor Consultation</option>
+                            <option>Panchkarma Detox</option>
+                            <option>Spine & Joint Treatment</option>
+                            <option>Skin & Hair Care</option>
+                            <option>Women's Health / PCOS</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Preferred Date</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Health Issue Details (Optional)</label>
+                        <textarea class="form-control" placeholder="Briefly describe your symptoms..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary" style="width: 100%;">Confirm Appointment Booking</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <b>NIRAMAY</b>
+                <small>Panchkarma Kendra[cite: 5]</small>
+                <p>Authentic Ayurvedic healing, personalized Panchkarma therapies, and lifestyle wellness rooted in classical Ayurvedic traditions in Kolhapur[cite: 5].</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#panchkarma">Panchkarma</a></li>
+                    <li><a href="#specialties">Specializations</a></li>
+                    <li><a href="#doctors">Our Doctors</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Therapies</h4>
+                <ul>
+                    <li><a href="#panchkarma">Vamana</a></li>
+                    <li><a href="#panchkarma">Virechana</a></li>
+                    <li><a href="#panchkarma">Basti</a></li>
+                    <li><a href="#panchkarma">Nasya</a></li>
+                    <li><a href="#panchkarma">Raktamokshana</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Contact Us</h4>
+                <ul>
+                    <li><a href="#contact">Raviwar Peth, Kolhapur[cite: 5]</a></li>
+                    <li><a href="tel:+917720092701">+91 77200 92701[cite: 5]</a></li>
+                    <li><a href="#contact">Mon - Sat: 9am - 8pm[cite: 5]</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Niramay Panchkarma Kendra. All rights reserved.</p>
+            <p>Designed with care for Authentic Ayurvedic Healthcare</p>
+        </div>
+    </footer>
 
     <!-- Toast Notification -->
-    <div class="toast" role="alert" aria-live="polite"></div>
+    <div class="toast" id="toast">
+        Appointment Request Submitted! Our team will contact you shortly to confirm.
+    </div>
 
-    <script src="script.js"></script>
+    <!-- JavaScript Interactivity -->
+    <script>
+        // Mobile Navigation Toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Panchkarma Tab Switching
+        function openTab(evt, tabName) {
+            const tabContents = document.getElementsByClassName('tab-content');
+            for (let i = 0; i < tabContents.length; i++) {
+                tabContents[i].classList.remove('active');
+            }
+
+            const tabBtns = document.getElementsByClassName('tab-btn');
+            for (let i = 0; i < tabBtns.length; i++) {
+                tabBtns[i].classList.remove('active');
+            }
+
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+
+        // Hero Image Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const dots = document.querySelectorAll('.hero-dot');
+
+        function setSlide(index) {
+            slides.forEach(s => s.classList.remove('active'));
+            dots.forEach(d => d.classList.remove('active'));
+            
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+            currentSlide = index;
+        }
+
+        function autoSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            setSlide(currentSlide);
+        }
+
+        setInterval(autoSlide, 4500);
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const toast = document.getElementById('toast');
+            toast.style.display = 'block';
+            document.getElementById('bookingForm').reset();
+            
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 4000);
+        }
+    </script>
 </body>
 </html>
